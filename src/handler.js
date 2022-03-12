@@ -120,42 +120,24 @@ const addBookHandler = (request, h) => {
  */
 const getAllBooksHandler = (request, h) => {
   const { query } = request;
-
+  console.log(query);
   const queries = Object.getOwnPropertyNames(query);
 
-  const filteredBooks = books
+  let filteredBooks = books;
 
-    /**
-     * filter terhadap field query name
-     */
-    .filter((book) => {
-      if (queries.includes('name')) {
-        return book.name.toLowerCase().includes(query.name.toLowerCase());
-      }
+  if (queries.includes('name')) {
+    filteredBooks = books.filter((b) =>
+      b.name.toLowerCase().includes(query.name.toLowerCase())
+    );
+  }
 
-      return true;
-    })
+  if (queries.includes('reading')) {
+    filteredBooks = books.filter((b) => b.reading === Boolean(query.reading));
+  }
 
-    /**
-     * filter terhadap field query reading
-     */
-    .filter((book) => {
-      if (queries.includes('reading')) {
-        return book.reading === Boolean(query.reading);
-      }
-      return true;
-    })
-
-    /**
-     * filter terhadap field query finished
-     */
-    .filter((book) => {
-      if (queries.includes('finished')) {
-        return book.finished === Boolean(query.finished);
-      }
-
-      return true;
-    });
+  if (queries.includes('finished')) {
+    filteredBooks = books.filter((b) => b.finished === Boolean(query.finished));
+  }
 
   return h
     .response({
