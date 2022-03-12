@@ -1,13 +1,13 @@
 {
   "name": "bookshelf-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplikasi Backend Bookshelf menggunakan NodeJS",
   "main": "index.js",
   "scripts": {
     "start-dev": "nodemon ./src/server.js"
   },
   "keywords": [],
-  "author": "RayhanHamada",
+  "author": "Muhammad Rayhan Hamada Budiman",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.11.0",
