@@ -6,9 +6,6 @@ const {
   deleteBookByIdHandler,
 } = require('./handler');
 
-/**
- * @type {import('@hapi/hapi').ServerRoute[]} ServerRoutes
- */
 const routes = [
   {
     method: 'GET',

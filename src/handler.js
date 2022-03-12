@@ -1,44 +1,7 @@
 const { nanoid } = require('nanoid');
 const books = require('./books');
 
-/**
- * @typedef {import('@hapi/hapi').Lifecycle.Method} Handler
- * @typedef {{
- * id: string,
- * name: string,
- * year: number,
- * author: string,
- * summary: string,
- * publisher: string,
- * pageCount: number,
- * readPage: number,
- * reading: boolean,
- * finished: boolean,
- * insertedAt: string,
- * updatedAt: string
- * }} Book
- */
-
-/**
- * @type {Handler}
- */
 const addBookHandler = (request, h) => {
-  /**
-   * destructure data terlebih dahulu
-   */
-
-  /**
-   * @type {{
-   * name: string,
-   * year: number,
-   * author: string,
-   * summary: string,
-   * publisher: string,
-   * pageCount: number,
-   * readPage: number,
-   * reading: boolean,
-   * }}
-   */
   const pl = request.payload;
 
   /**
@@ -74,9 +37,6 @@ const addBookHandler = (request, h) => {
   const id = nanoid(16);
   const date = new Date().toISOString();
 
-  /**
-   * @type {Book}
-   */
   const newBook = {
     id,
     ...pl,
@@ -115,9 +75,6 @@ const addBookHandler = (request, h) => {
     .code(201);
 };
 
-/**
- * @type {Handler}
- */
 const getAllBooksHandler = (request, h) => {
   const { query } = request;
   console.log(query);
@@ -153,13 +110,7 @@ const getAllBooksHandler = (request, h) => {
     .code(200);
 };
 
-/**
- * @type {Handler}
- */
 const getBookByIdHandler = (request, h) => {
-  /**
-   * @type {{bookId: string}}
-   */
   const { bookId } = request.params;
 
   const book = books.find((book) => book.id === bookId);
@@ -189,9 +140,6 @@ const getBookByIdHandler = (request, h) => {
     .code(200);
 };
 
-/**
- * @type {Handler}
- */
 const editBookByIdHandler = (request, h) => {
   const { bookId } = request.params;
 
@@ -209,18 +157,6 @@ const editBookByIdHandler = (request, h) => {
       .code(404);
   }
 
-  /**
-   * @type {{
-   * name: string,
-   * year: number,
-   * author: string,
-   * summary: string,
-   * publisher: string,
-   * pageCount: number,
-   * readPage: number,
-   * reading: boolean,
-   * }}
-   */
   const {
     name,
     author,
@@ -278,13 +214,7 @@ const editBookByIdHandler = (request, h) => {
     .code(200);
 };
 
-/**
- * @type {Handler}
- */
 const deleteBookByIdHandler = (request, h) => {
-  /**
-   * @type {{bookId: string}}
-   */
   const { bookId } = request.params;
 
   const bookIndex = books.findIndex((book) => book.id === bookId);
