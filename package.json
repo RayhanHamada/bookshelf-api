@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "RayhanHamada",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.11.0",
-    "eslint-config-xo": "^0.40.0"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "nodemon": "^2.0.15"
   },
   "dependencies": {
     "@hapi/hapi": "^20.2.1",
