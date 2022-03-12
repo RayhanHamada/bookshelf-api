@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "RayhanHamada",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-xo": "^0.40.0"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "nanoid": "^3.3.1"
+  }
 }
